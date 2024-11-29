@@ -1,0 +1,103 @@
+1. Stochastic Gradient Descent (SGD)
+
+Description: Updates weights based on a single (or mini-batch) data sample.
+
+Strengths:
+Simple and computationally efficient.
+Works well for large datasets and convex problems.
+
+Limitations:
+Converges slowly.
+Struggles with learning rates and can get stuck in local minima.
+
+When to Use:
+Classical machine learning tasks or when resources are limited.
+
+2. Momentum
+
+Description: Adds a fraction of the previous update to the current update to smooth out gradients.
+
+Strengths:
+Speeds up convergence.
+Handles oscillations in the optimization path.
+
+When to Use:
+When SGD converges too slowly or oscillates.
+
+3. Adam (Adaptive Moment Estimation)
+
+Description: Combines ideas from RMSProp and Momentum by adapting learning rates for each parameter and using running averages of gradients.
+
+Strengths:
+Works well for most problems.
+Efficient and requires less parameter tuning.
+Handles sparse gradients well.
+
+Limitations:
+Can sometimes converge to suboptimal solutions.
+
+When to Use:
+Most deep learning tasks, including NLP, computer vision, and time-series modeling.
+
+4. RMSProp (Root Mean Square Propagation)
+
+Description: Adapts the learning rate for each parameter based on recent gradient magnitudes.
+
+Strengths:
+Performs well for non-stationary objectives (e.g., RNNs).
+Balances learning rate effectively.
+
+When to Use:
+Recurrent Neural Networks or tasks where gradients vary significantly.
+
+5. AdaGrad (Adaptive Gradient Algorithm)
+
+Description: Adjusts the learning rate for each parameter based on past gradients.
+
+Strengths:
+Excellent for sparse data or features (e.g., NLP tasks).
+
+Limitations:
+Learning rate decays too quickly for longer training sessions.
+
+When to Use:
+Problems with sparse gradients like recommendation systems.
+
+6. AdamW (Adam with Weight Decay)
+
+Description: A variation of Adam that adds decoupled weight decay for better generalization.
+
+Strengths:
+Prevents overfitting by controlling weight magnitudes.
+Recommended for transformer-based architectures like BERT and GPT.
+
+When to Use:
+Modern deep learning models where generalization matters.
+
+7. Nesterov Accelerated Gradient (NAG)
+
+Description: A variant of Momentum that looks ahead before updating gradients.
+
+Strengths:
+Provides more accurate gradient updates.
+Speeds up convergence in some cases.
+
+When to Use:
+Problems where momentum struggles to optimize effectively.
+
+
+
+Optimizer Comparison Table
+
++-----------+-----------------------+-------------------------------+------------------------------------+
+| Optimizer | Learning Rate Adapt. | Best For                      | Weakness                          |
++-----------+-----------------------+-------------------------------+------------------------------------+
+| SGD       | No                    | Simple, large datasets        | Slow convergence                  |
+| Momentum  | No                    | Reducing oscillatory paths    | Sensitive to learning rates       |
+| Adam      | Yes                   | General-purpose deep learning | Can converge to suboptimal minima |
+| RMSProp   | Yes                   | RNNs, non-stationary tasks    | Requires tuning decay rates       |
+| AdaGrad   | Yes                   | Sparse data                   | Learning rate decays too quickly  |
+| AdamW     | Yes                   | Transformers, large models    | Slightly slower than Adam         |
+| NAG       | No                    | Momentum-sensitive tasks      | More computational overhead       |
++-----------+-----------------------+-------------------------------+------------------------------------+
+
